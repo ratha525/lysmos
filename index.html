@@ -636,16 +636,29 @@
   </div>
 </script>
 
-<audio id="bgMusic" loop>
-  <source src="m3p/love.mp3" type="audio/mpeg">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Love</title>
+</head>
+<body style="text-align:center; margin-top:100px;">
+
+<h1>Click here ❤️</h1>
+
+<audio id="bgMusic">
+  <source src="love.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 const music = document.getElementById("bgMusic");
 
-document.addEventListener("click", function () {
-  music.play();
-});
+document.body.addEventListener("click", function () {
+    music.play();
+}, { once: true });
+</script>
+
+</body>
+</html>
 </script>
 <!-- 💕 Floating Hearts -->
 <style>
@@ -691,3 +704,4 @@ setInterval(createHeart, 500);
   </div> 
 </body>
 </html>
+
