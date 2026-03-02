@@ -635,17 +635,21 @@
      </div> 
   </div>
     </script>
-
-<audio id="bgMusic">
+<audio id="bgMusic" loop>
   <source src="m3p/love.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 const music = document.getElementById("bgMusic");
 
-document.body.addEventListener("click", function () {
+function playMusic() {
     music.play();
-}, { once: true });
+}
+
+document.addEventListener("touchstart", playMusic, { once: true });
+document.addEventListener("click", playMusic, { once: true });
+</script>
+
 </script>
 
 </body>
@@ -695,6 +699,7 @@ setInterval(createHeart, 500);
   </div> 
 </body>
 </html>
+
 
 
 
