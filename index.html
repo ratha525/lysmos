@@ -635,17 +635,41 @@
      </div> 
   </div>
     </script>
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html>
 <head>
-    <title>Love</title>
+<title>Love</title>
+
+<style>
+body {
+    background: radial-gradient(circle at center, #1a001a, #000);
+    text-align: center;
+    margin-top: 100px;
+    color: white;
+    overflow: hidden;
+}
+
+.heart {
+    position: fixed;
+    bottom: -20px;
+    color: #ff4d6d;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+
 </head>
-<body style="text-align:center; margin-top:100px;">
+<body>
 
 <h1>Click here ❤️</h1>
 
-<audio id="bgMusic">
-  <source src="mp3/love.mp3" type="audio/mpeg">
+<audio id="bgMusic" loop>
+  <source src="love.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -654,46 +678,24 @@ const music = document.getElementById("bgMusic");
 document.body.addEventListener("click", function () {
     music.play();
 }, { once: true });
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 500);
 </script>
 
 </body>
 </html>
-</script>
-<!-- 💕 Floating Hearts -->
-<style>
-body {
-  background: radial-gradient(circle at center, #1a001a, #000);
-  overflow: hidden;
-}
-
-.heart {
-  position: fixed;
-  bottom: -20px;
-  color: #ff4d6d;
-  font-size: 20px;
-  animation: floatUp 6s linear infinite;
-}
-
-@keyframes floatUp {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(-100vh); opacity: 0; }
-}
-</style>
-
-<script>
-function createHeart() {
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerHTML = "💖";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (Math.random() * 20 + 15) + "px";
-  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-  document.body.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 6000);
-}
 
 setInterval(createHeart, 500);
 </script>
@@ -703,6 +705,7 @@ setInterval(createHeart, 500);
   </div> 
 </body>
 </html>
+
 
 
 
